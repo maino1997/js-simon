@@ -23,24 +23,38 @@ do {
 alert(fiveNumbersList);
 
 const afterSeconds = setTimeout(() => {
-    // toShowList = [];
+    secondList = [];
 
-    // for (let i = 0; i < 5; i++) {
-    //     if (fiveNumbersList[i] === currentNumber) {
-    //         toShowList.push(currentNumber);
-    //     }
-    // }
-
-    const toShow = fiveNumbersList.filter((item) => {
-        const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
-        if (currentNumber === item) {
-            return true;
+    for (let i = 0; secondList.length < 5; i++) {
+        const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
+        if (secondList.includes(currentNumber) || isNaN(currentNumber) || currentNumber === "") {
+            alert("Non hai inserito un numero corretto oppure già inserito");
+        } else {
+            if (fiveNumbersList[i] === currentNumber) {
+                secondList.push(currentNumber);
+            }
         }
-        return false;
-    });
+    }
+    console.log(secondList);
+
+    toShowList = [];
+
+    for (let i = 0; i < fiveNumbersList.length; i++) {
+        if (fiveNumbersList.includes(secondList[i])) {
+            toShowList.push(secondList[i]);
+        }
+    }
+
+    // const toShow = fiveNumbersList.filter((item) => {
+    //     const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
+    //     if (currentNumber === item && !isNan(currentNumber) && currentNumber !== "") {
+    //         return true;
+    //     }
+    //     return false;
+    // });
 
 
-    alert(toShow);
+    alert(toShowList);
 }, 3000);
 
 
