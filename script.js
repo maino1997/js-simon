@@ -81,7 +81,7 @@ const afterSeconds = setTimeout(() => {
         }
     }
 
-    resultDisplay.innerText = `Hai ricordato i seguenti numeri ${toShowList}`;
+    resultDisplay.innerText = `Hai ricordato ${toShowList.length} numeri e sono i seguenti ${toShowList}`;
 }, 4000);
 
 
