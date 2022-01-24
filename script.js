@@ -7,6 +7,9 @@
 // controllare che i numeri casuali siano diversi tra loro
 // controllare che l'utente non inserisca 2 volte lo stesso numero
 
+const countDisplay = document.getElementById("countdown-display");
+const resultDisplay = document.getElementById("result-display");
+
 
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -22,7 +25,21 @@ do {
 
 alert(fiveNumbersList);
 
+
+
+
+let count = 3;
+countDisplay.innerText = count;
+const countdown = setInterval(() => {
+    countDisplay.innerText = --count;
+    if (count === 0) {
+        clearInterval(countdown);
+    }
+}, 1000);
+
+
 const afterSeconds = setTimeout(() => {
+
     const secondList = [];
 
     while (secondList.length < 5) {
@@ -64,8 +81,8 @@ const afterSeconds = setTimeout(() => {
         }
     }
 
-    alert(`Hai ricordato i seguenti numeri ${toShowList}`);
-}, 3000);
+    resultDisplay.innerText = `Hai ricordato i seguenti numeri ${toShowList}`;
+}, 4000);
 
 
 
