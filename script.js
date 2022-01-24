@@ -14,23 +14,33 @@ const fiveNumbersList = [];
 
 do {
     const currentRdnNumber = getRandomNumber(1, 50);
-    fiveNumbersList.push(currentRdnNumber);
+    if (!fiveNumbersList.includes(currentRdnNumber)) {
+
+        fiveNumbersList.push(currentRdnNumber);
+    }
 } while (fiveNumbersList.length < 5)
 
 alert(fiveNumbersList);
 
 const afterSeconds = setTimeout(() => {
-    toShowList = [];
+    // toShowList = [];
 
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
+    //     if (fiveNumbersList[i] === currentNumber) {
+    //         toShowList.push(currentNumber);
+    //     }
+    // }
+
+    const toShow = fiveNumbersList.filter((item) => {
         const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
-        if (fiveNumbersList[i] === currentNumber) {
-            toShowList.push(currentNumber);
+        if (currentNumber === item) {
+            return true;
         }
-    }
+        return false;
+    });
 
 
-    alert(toShowList);
+    alert(toShow);
 }, 3000);
 
 
