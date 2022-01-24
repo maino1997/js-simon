@@ -23,7 +23,7 @@ do {
 alert(fiveNumbersList);
 
 const afterSeconds = setTimeout(() => {
-    secondList = [];
+    const secondList = [];
 
     while (secondList.length < 5) {
         const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
@@ -38,19 +38,26 @@ const afterSeconds = setTimeout(() => {
 
     // let currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
 
-    // const toShow = fiveNumbersList.map(() => {
-    //     while (isNaN(currentNumber) || currentNumber === "" || currentNumber < 0 || currentNumber > 50) {
-    //         alert("Numero non corretto");
-    //         currentNumber = parseInt(prompt("reinserisci un numero da 1 a 50").trim());
+    // while (isNaN(currentNumber) || currentNumber === "" || currentNumber < 0 || currentNumber > 50) {
+    //     alert("Numero non corretto");
+    //     currentNumber = parseInt(prompt("reinserisci un numero da 1 a 50").trim());
+
+    // }
+
+    // const toShow = fiveNumbersList.map((item, index, list) => {
+    //     if (list[index] === currentNumber) {
+    //         return true;
+    //     } else {
+    //         return false;
     //     }
-    //     return true;
+
     // });
 
-    // console.log(toShow);
+
 
     toShowList = [];
 
-    for (let i = 0; i < fiveNumbersList.length - 1; i++) {
+    for (let i = 0; i <= fiveNumbersList.length; i++) {
         console.log(secondList[i]);
         if (fiveNumbersList.includes(secondList[i])) {
             toShowList.push(secondList[i]);
