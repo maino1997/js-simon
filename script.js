@@ -25,36 +25,39 @@ alert(fiveNumbersList);
 const afterSeconds = setTimeout(() => {
     secondList = [];
 
-    for (let i = 0; secondList.length < 5; i++) {
+    while (secondList.length < 5) {
         const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
-        if (secondList.includes(currentNumber) || isNaN(currentNumber) || currentNumber === "") {
+        if (secondList.includes(currentNumber) || isNaN(currentNumber) || currentNumber === "" || currentNumber < 0 || currentNumber > 50) {
             alert("Non hai inserito un numero corretto oppure già inserito");
         } else {
-            if (fiveNumbersList[i] === currentNumber) {
-                secondList.push(currentNumber);
-            }
+            secondList.push(currentNumber);
         }
     }
     console.log(secondList);
 
+
+    // let currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
+
+    // const toShow = fiveNumbersList.map(() => {
+    //     while (isNaN(currentNumber) || currentNumber === "" || currentNumber < 0 || currentNumber > 50) {
+    //         alert("Numero non corretto");
+    //         currentNumber = parseInt(prompt("reinserisci un numero da 1 a 50").trim());
+    //     }
+    //     return true;
+    // });
+
+    // console.log(toShow);
+
     toShowList = [];
 
-    for (let i = 0; i < fiveNumbersList.length; i++) {
+    for (let i = 0; i < fiveNumbersList.length - 1; i++) {
+        console.log(secondList[i]);
         if (fiveNumbersList.includes(secondList[i])) {
             toShowList.push(secondList[i]);
         }
     }
 
-    // const toShow = fiveNumbersList.filter((item) => {
-    //     const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50").trim());
-    //     if (currentNumber === item && !isNan(currentNumber) && currentNumber !== "") {
-    //         return true;
-    //     }
-    //     return false;
-    // });
-
-
-    alert(toShowList);
+    alert(`Hai ricordato i seguenti numeri ${toShowList}`);
 }, 3000);
 
 
