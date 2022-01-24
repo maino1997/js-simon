@@ -72,16 +72,28 @@ const afterSeconds = setTimeout(() => {
 
 
 
-    toShowList = [];
+    // Versione con for tradizionale 
+    // toShowList = [];
 
-    for (let i = 0; i <= fiveNumbersList.length; i++) {
-        console.log(secondList[i]);
-        if (fiveNumbersList.includes(secondList[i])) {
-            toShowList.push(secondList[i]);
+    // for (let i = 0; i <= fiveNumbersList.length; i++) {
+    //     console.log(secondList[i]);
+    //     if (fiveNumbersList.includes(secondList[i])) {
+    //         toShowList.push(secondList[i]);
+    //     }
+    // }
+
+
+    // Versione con filter 
+    const toShow = fiveNumbersList.filter((item, index, list) => {
+        if (item === secondList[index]) {
+            return true;
         }
-    }
+        return false;
+    });
 
-    resultDisplay.innerText = `Hai ricordato ${toShowList.length} numeri e sono i seguenti ${toShowList}`;
+    console.log(toShow);
+
+    resultDisplay.innerText = `Hai ricordato ${toShow.length} numeri e sono i seguenti ${toShow}`;
 }, 4000);
 
 

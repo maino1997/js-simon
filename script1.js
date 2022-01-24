@@ -26,26 +26,22 @@ alert(fiveNumbersList);
 const afterSeconds = setTimeout(() => {
 
 
-    let currentNumber;
-    while (isNaN(currentNumber) || currentNumber === "" || currentNumber < 0 || currentNumber > 50) {
-        currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
-    }
-    const toDo = () => {
+    const toDo = (number) => {
 
-        for (let i = 0; i < 5; i++) {
-            currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
-            const newArr = fiveNumbersList.filter((item, index, list) => {
-                if (item === currentNumber) {
-                    return true;
-                }
-                return false;
-            });
-        }
+        const newArr = fiveNumbersList.filter((item, index, list) => {
+            while (isNaN(number) || number === "" || number < 0 || number > 50) {
+                number = parseInt(prompt("inserisci un numero da 1 a 50"));
+            }
+            if (item === number) {
+                return true;
+            }
+            return false;
+        });
         return newArr;
     }
 
 
 
 
-    console.log(toDo());
+    console.log(toDo(currentNumber));
 }, 4000);
