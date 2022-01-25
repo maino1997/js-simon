@@ -41,6 +41,7 @@ const countdown = setInterval(() => {
 const afterSeconds = setTimeout(() => {
 
     const secondList = [];
+    toShowList = [];
 
     while (secondList.length < 5) {
         const currentNumber = parseInt(prompt("inserisci un numero da 1 a 50"));
@@ -48,6 +49,9 @@ const afterSeconds = setTimeout(() => {
             alert("Non hai inserito un numero corretto oppure già inserito");
         } else {
             secondList.push(currentNumber);
+            if (fiveNumbersList.includes(currentNumber)) {
+                toShowList.push(currentNumber);
+            }
         }
     }
     console.log(secondList);
@@ -73,8 +77,7 @@ const afterSeconds = setTimeout(() => {
 
 
     // Versione con for tradizionale 
-    // toShowList = [];
-
+    // Dichiarazione array vuoto toShowList portata direttamente sopra e pushato nel while
     // for (let i = 0; i <= fiveNumbersList.length; i++) {
     //     console.log(secondList[i]);
     //     if (fiveNumbersList.includes(secondList[i])) {
@@ -83,17 +86,17 @@ const afterSeconds = setTimeout(() => {
     // }
 
 
-    // Versione con filter 
-    const toShow = fiveNumbersList.filter((item, index, list) => {
-        if (item === secondList[index]) {
-            return true;
-        }
-        return false;
-    });
+    // Versione con filter
+    // const toShow = secondList.filter((item, index, list) => {
+    //     if (item === fiveNumbersList[index]) {
+    //         return true;
+    //     }
+    //     return false;
+    // });
 
-    console.log(toShow);
+    // console.log(toShow);
 
-    resultDisplay.innerText = `Hai ricordato ${toShow.length} numeri e sono i seguenti ${toShow}`;
+    resultDisplay.innerText = `Hai ricordato ${toShowList.length} numeri e sono i seguenti ${toShowList}`;
 }, 4000);
 
 
